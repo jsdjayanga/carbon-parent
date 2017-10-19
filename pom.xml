@@ -155,64 +155,64 @@
     </scm>
 
     <build>
-        <extensions>
-            <extension>
-                <groupId>org.apache.maven.wagon</groupId>
-                <artifactId>wagon-ssh</artifactId>
-                <version>${maven.wagon.ssh.version}</version>
-            </extension>
-        </extensions>
+        <!--<extensions>-->
+            <!--<extension>-->
+                <!--<groupId>org.apache.maven.wagon</groupId>-->
+                <!--<artifactId>wagon-ssh</artifactId>-->
+                <!--<version>${maven.wagon.ssh.version}</version>-->
+            <!--</extension>-->
+        <!--</extensions>-->
         <pluginManagement>
             <plugins>
                 <!-- set versions of common plugins for reproducibility, ordered alphabetically -->
-                <plugin>
-                    <groupId>org.apache.felix</groupId>
-                    <artifactId>maven-bundle-plugin</artifactId>
-                    <version>${maven.bundle.plugin.version}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-antrun-plugin</artifactId>
-                    <version>${maven.antrun.plugin.version}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-assembly-plugin</artifactId>
-                    <version>${maven.assembly.plugin.version}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-checkstyle-plugin</artifactId>
-                    <version>${maven.checkstyleplugin.version}</version>
-                    <executions>
-                        <execution>
-                            <id>validate</id>
-                            <phase>validate</phase>
-                            <configuration>
-                                <configLocation>
-                                    https://raw.githubusercontent.com/wso2/code-quality-tools/master/checkstyle/checkstyle.xml
-                                </configLocation>
-                                <suppressionsLocation>
-                                    https://raw.githubusercontent.com/wso2/code-quality-tools/master/checkstyle/suppressions.xml
-                                </suppressionsLocation>
-                                <encoding>UTF-8</encoding>
-                                <consoleOutput>true</consoleOutput>
-                                <failsOnError>true</failsOnError>
-                                <includeTestSourceDirectory>true</includeTestSourceDirectory>
-                                <!--Exclude sources-->
-                                <excludes>${maven.checkstyleplugin.excludes}</excludes>
-                            </configuration>
-                            <goals>
-                                <goal>check</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-clean-plugin</artifactId>
-                    <version>${maven.clean.plugin.version}</version>
-                </plugin>
+                <!--<plugin>-->
+                    <!--<groupId>org.apache.felix</groupId>-->
+                    <!--<artifactId>maven-bundle-plugin</artifactId>-->
+                    <!--<version>${maven.bundle.plugin.version}</version>-->
+                <!--</plugin>-->
+                <!--<plugin>-->
+                    <!--<groupId>org.apache.maven.plugins</groupId>-->
+                    <!--<artifactId>maven-antrun-plugin</artifactId>-->
+                    <!--<version>${maven.antrun.plugin.version}</version>-->
+                <!--</plugin>-->
+                <!--<plugin>-->
+                    <!--<groupId>org.apache.maven.plugins</groupId>-->
+                    <!--<artifactId>maven-assembly-plugin</artifactId>-->
+                    <!--<version>${maven.assembly.plugin.version}</version>-->
+                <!--</plugin>-->
+                <!--<plugin>-->
+                    <!--<groupId>org.apache.maven.plugins</groupId>-->
+                    <!--<artifactId>maven-checkstyle-plugin</artifactId>-->
+                    <!--<version>${maven.checkstyleplugin.version}</version>-->
+                    <!--<executions>-->
+                        <!--<execution>-->
+                            <!--<id>validate</id>-->
+                            <!--<phase>validate</phase>-->
+                            <!--<configuration>-->
+                                <!--<configLocation>-->
+                                    <!--https://raw.githubusercontent.com/wso2/code-quality-tools/master/checkstyle/checkstyle.xml-->
+                                <!--</configLocation>-->
+                                <!--<suppressionsLocation>-->
+                                    <!--https://raw.githubusercontent.com/wso2/code-quality-tools/master/checkstyle/suppressions.xml-->
+                                <!--</suppressionsLocation>-->
+                                <!--<encoding>UTF-8</encoding>-->
+                                <!--<consoleOutput>true</consoleOutput>-->
+                                <!--<failsOnError>true</failsOnError>-->
+                                <!--<includeTestSourceDirectory>true</includeTestSourceDirectory>-->
+                                <!--&lt;!&ndash;Exclude sources&ndash;&gt;-->
+                                <!--<excludes>${maven.checkstyleplugin.excludes}</excludes>-->
+                            <!--</configuration>-->
+                            <!--<goals>-->
+                                <!--<goal>check</goal>-->
+                            <!--</goals>-->
+                        <!--</execution>-->
+                    <!--</executions>-->
+                <!--</plugin>-->
+                <!--<plugin>-->
+                    <!--<groupId>org.apache.maven.plugins</groupId>-->
+                    <!--<artifactId>maven-clean-plugin</artifactId>-->
+                    <!--<version>${maven.clean.plugin.version}</version>-->
+                <!--</plugin>-->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
@@ -220,6 +220,8 @@
                     <configuration>
                         <source>${wso2.maven.compiler.source}</source>
                         <target>${wso2.maven.compiler.target}</target>
+                        <showWarnings>true</showWarnings>
+                        <showDeprecation>true</showDeprecation>
                     </configuration>
                 </plugin>
                 <plugin>
@@ -227,41 +229,41 @@
                     <artifactId>maven-dependency-plugin</artifactId>
                     <version>${maven.dependency.plugin.version}</version>
                 </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-deploy-plugin</artifactId>
-                    <version>${maven.deploy.plugin.version}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-docck-plugin</artifactId>
-                    <version>${maven.docck.plugin.version}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-enforcer-plugin</artifactId>
-                    <version>${maven.enforcer.plugin.version}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-failsafe-plugin</artifactId>
-                    <version>${maven.failsafe.plugin.version}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-gpg-plugin</artifactId>
-                    <version>${maven.gpg.plugin.version}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-install-plugin</artifactId>
-                    <version>${maven.install.plugin.version}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-invoker-plugin</artifactId>
-                    <version>${maven.invoker.plugin.version}</version>
-                </plugin>
+                <!--<plugin>-->
+                    <!--<groupId>org.apache.maven.plugins</groupId>-->
+                    <!--<artifactId>maven-deploy-plugin</artifactId>-->
+                    <!--<version>${maven.deploy.plugin.version}</version>-->
+                <!--</plugin>-->
+                <!--<plugin>-->
+                    <!--<groupId>org.apache.maven.plugins</groupId>-->
+                    <!--<artifactId>maven-docck-plugin</artifactId>-->
+                    <!--<version>${maven.docck.plugin.version}</version>-->
+                <!--</plugin>-->
+                <!--<plugin>-->
+                    <!--<groupId>org.apache.maven.plugins</groupId>-->
+                    <!--<artifactId>maven-enforcer-plugin</artifactId>-->
+                    <!--<version>${maven.enforcer.plugin.version}</version>-->
+                <!--</plugin>-->
+                <!--<plugin>-->
+                    <!--<groupId>org.apache.maven.plugins</groupId>-->
+                    <!--<artifactId>maven-failsafe-plugin</artifactId>-->
+                    <!--<version>${maven.failsafe.plugin.version}</version>-->
+                <!--</plugin>-->
+                <!--<plugin>-->
+                    <!--<groupId>org.apache.maven.plugins</groupId>-->
+                    <!--<artifactId>maven-gpg-plugin</artifactId>-->
+                    <!--<version>${maven.gpg.plugin.version}</version>-->
+                <!--</plugin>-->
+                <!--<plugin>-->
+                    <!--<groupId>org.apache.maven.plugins</groupId>-->
+                    <!--<artifactId>maven-install-plugin</artifactId>-->
+                    <!--<version>${maven.install.plugin.version}</version>-->
+                <!--</plugin>-->
+                <!--<plugin>-->
+                    <!--<groupId>org.apache.maven.plugins</groupId>-->
+                    <!--<artifactId>maven-invoker-plugin</artifactId>-->
+                    <!--<version>${maven.invoker.plugin.version}</version>-->
+                <!--</plugin>-->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-jar-plugin</artifactId>
@@ -275,181 +277,181 @@
                         </archive>
                     </configuration>
                 </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-javadoc-plugin</artifactId>
-                    <version>${maven.javadoc.plugin.version}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-plugin-plugin</artifactId>
-                    <version>${maven.plugin.plugin.version}</version>
-                </plugin>
-                <!-- START SNIPPET: release-plugin-configuration -->
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-release-plugin</artifactId>
-                    <version>${maven.release.plugin.version}</version>
-                </plugin>
-                <!-- END SNIPPET: release-plugin-configuration -->
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-remote-resources-plugin</artifactId>
-                    <version>${maven.remote.resources.plugin.version}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-resources-plugin</artifactId>
-                    <version>${maven.resources.plugin.version}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-scm-plugin</artifactId>
-                    <version>${maven.scm.plugin.version}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-scm-publish-plugin</artifactId>
-                    <version>${maven.scm.publish.plugin.version}</version>
-                    <!-- last version compatible with Maven 2: latest is configured in profile -->
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-site-plugin</artifactId>
-                    <version>${maven.site.plugin.version}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-source-plugin</artifactId>
-                    <version>${maven.source.plugin.version}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-surefire-plugin</artifactId>
-                    <version>${maven.surefire.plugin.version}</version>
-                    <!-- keep maven-failsafe-plugin in sync -->
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.rat</groupId>
-                    <artifactId>apache-rat-plugin</artifactId>
-                    <version>${apache.rat.plugin.version}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>buildnumber-maven-plugin</artifactId>
-                    <version>${maven.buildnumber.plugin.version}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>clirr-maven-plugin</artifactId>
-                    <version>${clirr.maven.plugin.version}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>findbugs-maven-plugin</artifactId>
-                    <version>${maven.findbugsplugin.version}</version>
-                    <configuration>
-                        <effort>Max</effort>
-                        <threshold>Low</threshold>
-                        <xmlOutput>true</xmlOutput>
-                        <findbugsXmlOutputDirectory>${project.build.directory}/findbugs</findbugsXmlOutputDirectory>
-                        <!--Exclude sources-->
-                        <excludeFilterFile>${mavan.findbugsplugin.exclude.file}</excludeFilterFile>
-                    </configuration>
-                    <executions>
-                        <execution>
-                            <id>analyze-compile</id>
-                            <phase>compile</phase>
-                            <goals>
-                                <goal>check</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
+                <!--<plugin>-->
+                    <!--<groupId>org.apache.maven.plugins</groupId>-->
+                    <!--<artifactId>maven-javadoc-plugin</artifactId>-->
+                    <!--<version>${maven.javadoc.plugin.version}</version>-->
+                <!--</plugin>-->
+                <!--<plugin>-->
+                    <!--<groupId>org.apache.maven.plugins</groupId>-->
+                    <!--<artifactId>maven-plugin-plugin</artifactId>-->
+                    <!--<version>${maven.plugin.plugin.version}</version>-->
+                <!--</plugin>-->
+                <!--&lt;!&ndash; START SNIPPET: release-plugin-configuration &ndash;&gt;-->
+                <!--<plugin>-->
+                    <!--<groupId>org.apache.maven.plugins</groupId>-->
+                    <!--<artifactId>maven-release-plugin</artifactId>-->
+                    <!--<version>${maven.release.plugin.version}</version>-->
+                <!--</plugin>-->
+                <!--&lt;!&ndash; END SNIPPET: release-plugin-configuration &ndash;&gt;-->
+                <!--<plugin>-->
+                    <!--<groupId>org.apache.maven.plugins</groupId>-->
+                    <!--<artifactId>maven-remote-resources-plugin</artifactId>-->
+                    <!--<version>${maven.remote.resources.plugin.version}</version>-->
+                <!--</plugin>-->
+                <!--<plugin>-->
+                    <!--<groupId>org.apache.maven.plugins</groupId>-->
+                    <!--<artifactId>maven-resources-plugin</artifactId>-->
+                    <!--<version>${maven.resources.plugin.version}</version>-->
+                <!--</plugin>-->
+                <!--<plugin>-->
+                    <!--<groupId>org.apache.maven.plugins</groupId>-->
+                    <!--<artifactId>maven-scm-plugin</artifactId>-->
+                    <!--<version>${maven.scm.plugin.version}</version>-->
+                <!--</plugin>-->
+                <!--<plugin>-->
+                    <!--<groupId>org.apache.maven.plugins</groupId>-->
+                    <!--<artifactId>maven-scm-publish-plugin</artifactId>-->
+                    <!--<version>${maven.scm.publish.plugin.version}</version>-->
+                    <!--&lt;!&ndash; last version compatible with Maven 2: latest is configured in profile &ndash;&gt;-->
+                <!--</plugin>-->
+                <!--<plugin>-->
+                    <!--<groupId>org.apache.maven.plugins</groupId>-->
+                    <!--<artifactId>maven-site-plugin</artifactId>-->
+                    <!--<version>${maven.site.plugin.version}</version>-->
+                <!--</plugin>-->
+                <!--<plugin>-->
+                    <!--<groupId>org.apache.maven.plugins</groupId>-->
+                    <!--<artifactId>maven-source-plugin</artifactId>-->
+                    <!--<version>${maven.source.plugin.version}</version>-->
+                <!--</plugin>-->
+                <!--<plugin>-->
+                    <!--<groupId>org.apache.maven.plugins</groupId>-->
+                    <!--<artifactId>maven-surefire-plugin</artifactId>-->
+                    <!--<version>${maven.surefire.plugin.version}</version>-->
+                    <!--&lt;!&ndash; keep maven-failsafe-plugin in sync &ndash;&gt;-->
+                <!--</plugin>-->
+                <!--<plugin>-->
+                    <!--<groupId>org.apache.rat</groupId>-->
+                    <!--<artifactId>apache-rat-plugin</artifactId>-->
+                    <!--<version>${apache.rat.plugin.version}</version>-->
+                <!--</plugin>-->
+                <!--<plugin>-->
+                    <!--<groupId>org.codehaus.mojo</groupId>-->
+                    <!--<artifactId>buildnumber-maven-plugin</artifactId>-->
+                    <!--<version>${maven.buildnumber.plugin.version}</version>-->
+                <!--</plugin>-->
+                <!--<plugin>-->
+                    <!--<groupId>org.codehaus.mojo</groupId>-->
+                    <!--<artifactId>clirr-maven-plugin</artifactId>-->
+                    <!--<version>${clirr.maven.plugin.version}</version>-->
+                <!--</plugin>-->
+                <!--<plugin>-->
+                    <!--<groupId>org.codehaus.mojo</groupId>-->
+                    <!--<artifactId>findbugs-maven-plugin</artifactId>-->
+                    <!--<version>${maven.findbugsplugin.version}</version>-->
+                    <!--<configuration>-->
+                        <!--<effort>Max</effort>-->
+                        <!--<threshold>Low</threshold>-->
+                        <!--<xmlOutput>true</xmlOutput>-->
+                        <!--<findbugsXmlOutputDirectory>${project.build.directory}/findbugs</findbugsXmlOutputDirectory>-->
+                        <!--&lt;!&ndash;Exclude sources&ndash;&gt;-->
+                        <!--<excludeFilterFile>${mavan.findbugsplugin.exclude.file}</excludeFilterFile>-->
+                    <!--</configuration>-->
+                    <!--<executions>-->
+                        <!--<execution>-->
+                            <!--<id>analyze-compile</id>-->
+                            <!--<phase>compile</phase>-->
+                            <!--<goals>-->
+                                <!--<goal>check</goal>-->
+                            <!--</goals>-->
+                        <!--</execution>-->
+                    <!--</executions>-->
+                <!--</plugin>-->
             </plugins>
         </pluginManagement>
         <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-checkstyle-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>findbugs-maven-plugin</artifactId>
-            </plugin>
-            <!-- We want to package up license resources in the JARs produced -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-remote-resources-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>process</goal>
-                        </goals>
-                        <configuration>
-                            <resourceBundles>
-                                <resourceBundle>org.apache:apache-jar-resource-bundle:1.4</resourceBundle>
-                            </resourceBundles>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.felix</groupId>
-                <artifactId>maven-bundle-plugin</artifactId>
-                <extensions>${maven.bundle.plugin.extensions}</extensions>
-                <configuration>
-                    <obrRepository>NONE</obrRepository>
-                    <instructions>
-                        <Bundle-Activator>${bundle.activator}</Bundle-Activator>
-                        <Bundle-ActivationPolicy>${bundle.activation.policy}</Bundle-ActivationPolicy>
-                        <Bundle-ClassPath>${bundle.classpath}</Bundle-ClassPath>
-                        <Bundle-Contributors>${bundle.contributors}</Bundle-Contributors>
-                        <Bundle-Copyright>WSO2 Inc</Bundle-Copyright>
-                        <Bundle-Description>${project.description}</Bundle-Description>
-                        <Bundle-Developers>${bundle.developers}</Bundle-Developers>
-                        <Bundle-DocURL>${bundle.docurl}</Bundle-DocURL>
-                        <Bundle-License>http://www.apache.org/licenses/LICENSE-2.0.txt</Bundle-License>
-                        <Bundle-Name>${bundle.name}</Bundle-Name>
-                        <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
-                        <Bundle-Vendor>WSO2 Inc</Bundle-Vendor>
-                        <Conditional-Package>${conditional.package}</Conditional-Package>
-                        <DynamicImport-Package>${dynamic.import.package}</DynamicImport-Package>
-                        <Export-Package>${export.package}</Export-Package>
-                        <Fragment-Host>${fragment.host}</Fragment-Host>
-                        <Import-Package>${import.package}</Import-Package>
-                        <Meta-Persistence>${meta.persistence}</Meta-Persistence>
-                        <Private-Package>${private.package}</Private-Package>
-                        <Provide-Capability>${provide.capability}</Provide-Capability>
-                        <Require-Bundle>${require.bundle}</Require-Bundle>
-                        <Require-Capability>${require.capability}</Require-Capability>
-                        <Service-Component>${service.component}</Service-Component>
-                        <Microservices>${microservices}</Microservices>
-                        <_dsannotations>${dsannotations}</_dsannotations>
-                        <Startup-Component>${startup.component}</Startup-Component>
-                        <Carbon-Component>${carbon.component}</Carbon-Component>
-                        <_include>${_include}</_include>
-                        <SCM-Revision>${buildNumber}</SCM-Revision>
-                    </instructions>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>buildnumber-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <phase>validate</phase>
-                        <goals>
-                            <goal>create</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <doCheck>false</doCheck>
-                    <doUpdate>false</doUpdate>
-                    <revisionOnScmFailure>${maven.build.timestamp}</revisionOnScmFailure>
-                </configuration>
-            </plugin> 
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-checkstyle-plugin</artifactId>-->
+            <!--</plugin>-->
+            <!--<plugin>-->
+                <!--<groupId>org.codehaus.mojo</groupId>-->
+                <!--<artifactId>findbugs-maven-plugin</artifactId>-->
+            <!--</plugin>-->
+            <!--&lt;!&ndash; We want to package up license resources in the JARs produced &ndash;&gt;-->
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-remote-resources-plugin</artifactId>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<goals>-->
+                            <!--<goal>process</goal>-->
+                        <!--</goals>-->
+                        <!--<configuration>-->
+                            <!--<resourceBundles>-->
+                                <!--<resourceBundle>org.apache:apache-jar-resource-bundle:1.4</resourceBundle>-->
+                            <!--</resourceBundles>-->
+                        <!--</configuration>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+            <!--</plugin>-->
+            <!--<plugin>-->
+                <!--<groupId>org.apache.felix</groupId>-->
+                <!--<artifactId>maven-bundle-plugin</artifactId>-->
+                <!--<extensions>${maven.bundle.plugin.extensions}</extensions>-->
+                <!--<configuration>-->
+                    <!--<obrRepository>NONE</obrRepository>-->
+                    <!--<instructions>-->
+                        <!--<Bundle-Activator>${bundle.activator}</Bundle-Activator>-->
+                        <!--<Bundle-ActivationPolicy>${bundle.activation.policy}</Bundle-ActivationPolicy>-->
+                        <!--<Bundle-ClassPath>${bundle.classpath}</Bundle-ClassPath>-->
+                        <!--<Bundle-Contributors>${bundle.contributors}</Bundle-Contributors>-->
+                        <!--<Bundle-Copyright>WSO2 Inc</Bundle-Copyright>-->
+                        <!--<Bundle-Description>${project.description}</Bundle-Description>-->
+                        <!--<Bundle-Developers>${bundle.developers}</Bundle-Developers>-->
+                        <!--<Bundle-DocURL>${bundle.docurl}</Bundle-DocURL>-->
+                        <!--<Bundle-License>http://www.apache.org/licenses/LICENSE-2.0.txt</Bundle-License>-->
+                        <!--<Bundle-Name>${bundle.name}</Bundle-Name>-->
+                        <!--<Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>-->
+                        <!--<Bundle-Vendor>WSO2 Inc</Bundle-Vendor>-->
+                        <!--<Conditional-Package>${conditional.package}</Conditional-Package>-->
+                        <!--<DynamicImport-Package>${dynamic.import.package}</DynamicImport-Package>-->
+                        <!--<Export-Package>${export.package}</Export-Package>-->
+                        <!--<Fragment-Host>${fragment.host}</Fragment-Host>-->
+                        <!--<Import-Package>${import.package}</Import-Package>-->
+                        <!--<Meta-Persistence>${meta.persistence}</Meta-Persistence>-->
+                        <!--<Private-Package>${private.package}</Private-Package>-->
+                        <!--<Provide-Capability>${provide.capability}</Provide-Capability>-->
+                        <!--<Require-Bundle>${require.bundle}</Require-Bundle>-->
+                        <!--<Require-Capability>${require.capability}</Require-Capability>-->
+                        <!--<Service-Component>${service.component}</Service-Component>-->
+                        <!--<Microservices>${microservices}</Microservices>-->
+                        <!--<_dsannotations>${dsannotations}</_dsannotations>-->
+                        <!--<Startup-Component>${startup.component}</Startup-Component>-->
+                        <!--<Carbon-Component>${carbon.component}</Carbon-Component>-->
+                        <!--<_include>${_include}</_include>-->
+                        <!--<SCM-Revision>${buildNumber}</SCM-Revision>-->
+                    <!--</instructions>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
+            <!--<plugin>-->
+                <!--<groupId>org.codehaus.mojo</groupId>-->
+                <!--<artifactId>buildnumber-maven-plugin</artifactId>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<phase>validate</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>create</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+                <!--<configuration>-->
+                    <!--<doCheck>false</doCheck>-->
+                    <!--<doUpdate>false</doUpdate>-->
+                    <!--<revisionOnScmFailure>${maven.build.timestamp}</revisionOnScmFailure>-->
+                <!--</configuration>-->
+            <!--</plugin> -->
         </plugins>
     </build>
 
@@ -461,81 +463,81 @@
                     <!-- Create a source-release artifact that contains the fully buildable
                          project directory source structure. This is the artifact which is
                          the official subject of any release vote. -->
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-assembly-plugin</artifactId>
-                        <dependencies>
-                            <dependency>
-                                <groupId>org.apache.apache.resources</groupId>
-                                <artifactId>apache-source-release-assembly-descriptor</artifactId>
-                                <version>${apache.source.release.assembly.descriptor.version}</version>
-                            </dependency>
-                        </dependencies>
-                        <executions>
-                            <execution>
-                                <id>source-release-assembly</id>
-                                <phase>package</phase>
-                                <goals>
-                                    <goal>single</goal>
-                                </goals>
-                                <configuration>
-                                    <runOnlyAtExecutionRoot>true</runOnlyAtExecutionRoot>
-                                    <descriptorRefs>
-                                        <descriptorRef>${sourceReleaseAssemblyDescriptor}</descriptorRef>
-                                    </descriptorRefs>
-                                    <tarLongFileMode>gnu</tarLongFileMode>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
+                    <!--<plugin>-->
+                        <!--<groupId>org.apache.maven.plugins</groupId>-->
+                        <!--<artifactId>maven-assembly-plugin</artifactId>-->
+                        <!--<dependencies>-->
+                            <!--<dependency>-->
+                                <!--<groupId>org.apache.apache.resources</groupId>-->
+                                <!--<artifactId>apache-source-release-assembly-descriptor</artifactId>-->
+                                <!--<version>${apache.source.release.assembly.descriptor.version}</version>-->
+                            <!--</dependency>-->
+                        <!--</dependencies>-->
+                        <!--<executions>-->
+                            <!--<execution>-->
+                                <!--<id>source-release-assembly</id>-->
+                                <!--<phase>package</phase>-->
+                                <!--<goals>-->
+                                    <!--<goal>single</goal>-->
+                                <!--</goals>-->
+                                <!--<configuration>-->
+                                    <!--<runOnlyAtExecutionRoot>true</runOnlyAtExecutionRoot>-->
+                                    <!--<descriptorRefs>-->
+                                        <!--<descriptorRef>${sourceReleaseAssemblyDescriptor}</descriptorRef>-->
+                                    <!--</descriptorRefs>-->
+                                    <!--<tarLongFileMode>gnu</tarLongFileMode>-->
+                                <!--</configuration>-->
+                            <!--</execution>-->
+                        <!--</executions>-->
+                    <!--</plugin>-->
                     <!-- We want to deploy the artifact to a staging location for perusal -->
-                    <plugin>
-                        <inherited>true</inherited>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-deploy-plugin</artifactId>
-                        <configuration>
-                            <updateReleaseInfo>true</updateReleaseInfo>
-                        </configuration>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-source-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>attach-sources</id>
-                                <goals>
-                                    <goal>jar</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-javadoc-plugin</artifactId>
-                        <configuration>
-                            <sourceFileExcludes>${mavan.javadocplugin.exclude.file.source}</sourceFileExcludes>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <id>attach-javadocs</id>
-                                <goals>
-                                    <goal>jar</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
+                    <!--<plugin>-->
+                        <!--<inherited>true</inherited>-->
+                        <!--<groupId>org.apache.maven.plugins</groupId>-->
+                        <!--<artifactId>maven-deploy-plugin</artifactId>-->
+                        <!--<configuration>-->
+                            <!--<updateReleaseInfo>true</updateReleaseInfo>-->
+                        <!--</configuration>-->
+                    <!--</plugin>-->
+                    <!--<plugin>-->
+                        <!--<groupId>org.apache.maven.plugins</groupId>-->
+                        <!--<artifactId>maven-source-plugin</artifactId>-->
+                        <!--<executions>-->
+                            <!--<execution>-->
+                                <!--<id>attach-sources</id>-->
+                                <!--<goals>-->
+                                    <!--<goal>jar</goal>-->
+                                <!--</goals>-->
+                            <!--</execution>-->
+                        <!--</executions>-->
+                    <!--</plugin>-->
+                    <!--<plugin>-->
+                        <!--<groupId>org.apache.maven.plugins</groupId>-->
+                        <!--<artifactId>maven-javadoc-plugin</artifactId>-->
+                        <!--<configuration>-->
+                            <!--<sourceFileExcludes>${mavan.javadocplugin.exclude.file.source}</sourceFileExcludes>-->
+                        <!--</configuration>-->
+                        <!--<executions>-->
+                            <!--<execution>-->
+                                <!--<id>attach-javadocs</id>-->
+                                <!--<goals>-->
+                                    <!--<goal>jar</goal>-->
+                                <!--</goals>-->
+                            <!--</execution>-->
+                        <!--</executions>-->
+                    <!--</plugin>-->
                     <!-- We want to sign the artifact, the POM, and all attached artifacts -->
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-gpg-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <goals>
-                                    <goal>sign</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
+                    <!--<plugin>-->
+                        <!--<groupId>org.apache.maven.plugins</groupId>-->
+                        <!--<artifactId>maven-gpg-plugin</artifactId>-->
+                        <!--<executions>-->
+                            <!--<execution>-->
+                                <!--<goals>-->
+                                    <!--<goal>sign</goal>-->
+                                <!--</goals>-->
+                            <!--</execution>-->
+                        <!--</executions>-->
+                    <!--</plugin>-->
                 </plugins>
             </build>
         </profile>
@@ -543,54 +545,54 @@
 
     <properties>
         <!-- Maven plugin versions -->
-        <maven.antrun.plugin.version>1.8</maven.antrun.plugin.version>
-        <maven.assembly.plugin.version>2.6</maven.assembly.plugin.version>
-        <maven.clean.plugin.version>3.0.0</maven.clean.plugin.version>
-        <maven.compiler.plugin.version>3.5.1</maven.compiler.plugin.version>
-        <maven.dependency.plugin.version>2.10</maven.dependency.plugin.version>
-        <maven.deploy.plugin.version>2.8.2</maven.deploy.plugin.version>
-        <maven.docck.plugin.version>1.1</maven.docck.plugin.version>
-        <maven.enforcer.plugin.version>1.4.1</maven.enforcer.plugin.version>
-        <maven.failsafe.plugin.version>2.19.1</maven.failsafe.plugin.version>
-        <maven.gpg.plugin.version>1.6</maven.gpg.plugin.version>
-        <maven.install.plugin.version>2.5.2</maven.install.plugin.version>
-        <maven.invoker.plugin.version>2.0.0</maven.invoker.plugin.version>
-        <maven.jar.plugin.version>2.6</maven.jar.plugin.version>
-        <maven.javadoc.plugin.version>2.10.3</maven.javadoc.plugin.version>
-        <maven.plugin.plugin.version>3.4</maven.plugin.plugin.version>
-        <maven.remote.resources.plugin.version>1.5</maven.remote.resources.plugin.version>
-        <maven.release.plugin.version>2.5.3</maven.release.plugin.version>
-        <maven.resources.plugin.version>2.7</maven.resources.plugin.version>
-        <maven.scm.plugin.version>1.9.4</maven.scm.plugin.version>
-        <maven.scm.publish.plugin.version>1.1</maven.scm.publish.plugin.version>
-        <maven.site.plugin.version>3.5</maven.site.plugin.version>
-        <maven.source.plugin.version>3.0.0</maven.source.plugin.version>
-        <maven.surefire.plugin.version>2.19.1</maven.surefire.plugin.version>
-        <apache.rat.plugin.version>0.11</apache.rat.plugin.version>
-        <clirr.maven.plugin.version>2.7</clirr.maven.plugin.version>
-        <apache.source.release.assembly.descriptor.version>1.0.5</apache.source.release.assembly.descriptor.version>
-        <maven.checkstyleplugin.version>2.17</maven.checkstyleplugin.version>
-        <maven.findbugsplugin.version>3.0.3</maven.findbugsplugin.version>
-        <maven.buildnumber.plugin.version>1.4</maven.buildnumber.plugin.version>
+        <!--<maven.antrun.plugin.version>1.8</maven.antrun.plugin.version>-->
+        <!--<maven.assembly.plugin.version>2.6</maven.assembly.plugin.version>-->
+        <!--<maven.clean.plugin.version>3.0.0</maven.clean.plugin.version>-->
+        <maven.compiler.plugin.version>3.7.0</maven.compiler.plugin.version>
+        <maven.dependency.plugin.version>3.0.2</maven.dependency.plugin.version>
+        <!--<maven.deploy.plugin.version>2.8.2</maven.deploy.plugin.version>-->
+        <!--<maven.docck.plugin.version>1.1</maven.docck.plugin.version>-->
+        <!--<maven.enforcer.plugin.version>1.4.1</maven.enforcer.plugin.version>-->
+        <!--<maven.failsafe.plugin.version>2.19.1</maven.failsafe.plugin.version>-->
+        <!--<maven.gpg.plugin.version>1.6</maven.gpg.plugin.version>-->
+        <!--<maven.install.plugin.version>2.5.2</maven.install.plugin.version>-->
+        <!--<maven.invoker.plugin.version>2.0.0</maven.invoker.plugin.version>-->
+        <maven.jar.plugin.version>3.0.2</maven.jar.plugin.version>
+        <!--<maven.javadoc.plugin.version>2.10.3</maven.javadoc.plugin.version>-->
+        <!--<maven.plugin.plugin.version>3.4</maven.plugin.plugin.version>-->
+        <!--<maven.remote.resources.plugin.version>1.5</maven.remote.resources.plugin.version>-->
+        <!--<maven.release.plugin.version>2.5.3</maven.release.plugin.version>-->
+        <!--<maven.resources.plugin.version>2.7</maven.resources.plugin.version>-->
+        <!--<maven.scm.plugin.version>1.9.4</maven.scm.plugin.version>-->
+        <!--<maven.scm.publish.plugin.version>1.1</maven.scm.publish.plugin.version>-->
+        <!--<maven.site.plugin.version>3.5</maven.site.plugin.version>-->
+        <!--<maven.source.plugin.version>3.0.0</maven.source.plugin.version>-->
+        <!--<maven.surefire.plugin.version>2.19.1</maven.surefire.plugin.version>-->
+        <!--<apache.rat.plugin.version>0.11</apache.rat.plugin.version>-->
+        <!--<clirr.maven.plugin.version>2.7</clirr.maven.plugin.version>-->
+        <!--<apache.source.release.assembly.descriptor.version>1.0.5</apache.source.release.assembly.descriptor.version>-->
+        <!--<maven.checkstyleplugin.version>2.17</maven.checkstyleplugin.version>-->
+        <!--<maven.findbugsplugin.version>3.0.3</maven.findbugsplugin.version>-->
+        <!--<maven.buildnumber.plugin.version>1.4</maven.buildnumber.plugin.version>-->
 
-        <!-- Other dependency versions -->
-        <maven.wagon.ssh.version>2.10</maven.wagon.ssh.version>
+        <!--&lt;!&ndash; Other dependency versions &ndash;&gt;-->
+        <!--<maven.wagon.ssh.version>2.10</maven.wagon.ssh.version>-->
 
-        <wso2.maven.compiler.source>1.8</wso2.maven.compiler.source>
-        <wso2.maven.compiler.target>1.8</wso2.maven.compiler.target>
-        <sourceReleaseAssemblyDescriptor>source-release</sourceReleaseAssemblyDescriptor>
-        <project.scm.id>my-scm-server</project.scm.id>
+        <wso2.maven.compiler.source>1.9</wso2.maven.compiler.source>
+        <wso2.maven.compiler.target>1.9</wso2.maven.compiler.target>
+        <!--<sourceReleaseAssemblyDescriptor>source-release</sourceReleaseAssemblyDescriptor>-->
+        <!--<project.scm.id>my-scm-server</project.scm.id>-->
 
-        <!--Maven bundle plugin configuration -->
-        <maven.bundle.plugin.version>3.0.1</maven.bundle.plugin.version>
-        <maven.bundle.plugin.vendor>WSO2 Inc</maven.bundle.plugin.vendor>
-        <maven.bundle.plugin.extensions>true</maven.bundle.plugin.extensions>
-        <bundle.classpath>.</bundle.classpath>
-        <dsannotations>*</dsannotations>
-        <bundle.contributors>WSO2 Inc</bundle.contributors>
-        <bundle.developers>WSO2 Inc</bundle.developers>
-        <bundle.docurl>https://docs.wso2.com</bundle.docurl>
-        <bundle.name>${project.artifactId}</bundle.name>
-        <import.package>*</import.package>
+        <!--&lt;!&ndash;Maven bundle plugin configuration &ndash;&gt;-->
+        <!--<maven.bundle.plugin.version>3.0.1</maven.bundle.plugin.version>-->
+        <!--<maven.bundle.plugin.vendor>WSO2 Inc</maven.bundle.plugin.vendor>-->
+        <!--<maven.bundle.plugin.extensions>true</maven.bundle.plugin.extensions>-->
+        <!--<bundle.classpath>.</bundle.classpath>-->
+        <!--<dsannotations>*</dsannotations>-->
+        <!--<bundle.contributors>WSO2 Inc</bundle.contributors>-->
+        <!--<bundle.developers>WSO2 Inc</bundle.developers>-->
+        <!--<bundle.docurl>https://docs.wso2.com</bundle.docurl>-->
+        <!--<bundle.name>${project.artifactId}</bundle.name>-->
+        <!--<import.package>*</import.package>-->
     </properties>
 </project>
